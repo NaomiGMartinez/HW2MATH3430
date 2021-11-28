@@ -1,0 +1,2 @@
+HW 9
+Floating point numbers are able to represent more values. They are able to represent much larger and much smaller numbers than fixed points. Also, they are able to represent numbers with a much higher degree of accuracy and precision.
