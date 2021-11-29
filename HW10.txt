@@ -1,0 +1,4 @@
+It would be interesting to go over a project using R. A popular one I’ve seen would be to use R to analyze the data sets, such as the palmer penguin’s dataset. The project would introduce us to R and how us how to clean, organize, analyze, and display the data visually using graphs or charts.
+ I also believe that a project using numpy would be interesting. It would likely be very similar to what we have covered in class, except using numpy. Naturally, we would tackle more difficult or more complex subjects due to the assistance of numpy.
+Additionally, using an art tool that could draw different shapes or graphs would be interesting, and I believe it is also a common introductory topic in python.
+Another interesting topic would be some sort of applications program where we create a software that allows us to interact more easily with what we have coded so far (Similar to virtual calculators found online).
