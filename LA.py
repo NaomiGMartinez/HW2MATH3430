@@ -52,7 +52,10 @@ matrix-matrix multiplication. Use of any other method will result in an earned
 grade of 0.
 """
 
-import math
+vector_a = [1, 2, 3]
+matrix_a = [[1, 2], [3, 4],[5, 6]]
+matrix_b = [[1, 2, 3], [4, 5, 6]]
+
 # Begin Example
 # Problem #0
 
@@ -80,23 +83,57 @@ def add_vectors(vector_a: list[float],
 # End Example
 # Note that you must add unit tests for problem 0!!!!!
 
+def test_0():
+    assert add_vectors(vector_a, vector_a) == [2, 4, 6]
+
 #Problem 01
 
 def scalar_vector_multiplication(scalar, vector):
 
-    result = [0 for element in vector]
+"""Multiply the elements in a vector by the scalar.
+
+   Creates a result vector the same size as the given vector which contains only 0's.
+   It then loops over the given vector and multiplies each element in the vector by the scalar
+   and places the result in the new vector in the same index as the corresponding element
+   in the given vector. After it breaks the loop, it returns the resulting vector.
+
+    Args:
+    scalar: A integer.
+    vector: A vector stored as a list.
+    
+    Returns:
+      A result vector that is the product of the scalar and the given vector.
+    """
+  
+   result = [0 for element in vector]
     
     for x in range(len(vector)):
         result[x] = vector[x] * scalar
     return result
 
-#Problem 2
+def test_1():
+    assert scalar_vector_multiplication(2, vector_a) == [2, 4, 6]  
+    
+#Problem 02
 
 def scalar_matrix_multiplication(scalar, matrix):
 
-    """
-    docstring goes here
-    """
+"""Multiply the elements in the matrix by the scalar.
+
+   Creates a result matrix the same size as the given matrix which contains only 0's.
+   It then loops over the matrix and multiplies the element in the matrix by the scalar
+   and places the result in the new matrix in the same index as the corresponding elements
+   in the given matrix. After it breaks the loop, it returns the resulting matrix.
+   
+   Args:
+       scalar: A integer.
+       matrix: A matrix stored as a list of lists.
+       
+   Result:
+          A result matrix that is the product of the scalar and the given matrix.
+"""   
+   
+    
 
     result = [[0 for element in range(len(matrix[0]))] for element in range(len(matrix))]
 
@@ -106,15 +143,29 @@ def scalar_matrix_multiplication(scalar, matrix):
 
     return result
 
-# Problem 3
+def test_2():
+    assert scalar_matrix_multiplication(2, matrix_a) == [[2, 4], [6, 8], [10, 12]]
+  
+ # Problem 03
 
 def matrix_addition(matrix_a, matrix_b):
 
-    """
-    docstring goes here
-    """
-
-    result = [[0 for element in range(len(matrix_a[0]))] for element in range(len(matrix_a))]
+"""Adds two input matrices
+   
+   Creates a result matrix of the same size as one of the input matrices. 
+   It then loops over the matrices and adds  the elements in matrix_a by matrix_b
+   and places the result in the new matrix in the same format as the corresponding elements
+   in the given matrix. After it breaks the loop, it returns the resulting matrix.
+   
+   Args:
+       matrix_a: a matrix stored as a list of lists.
+       matrix_b: a matrix, the same size as matrix_b stored as a list of lists.
+       
+    Result:
+       A result matrix that contains the sum of the two given matrices.
+"""   
+    
+     result = [[0 for element in range(len(matrix_a[0]))] for element in range(len(matrix_a))]
 
 
     for row in range(len(matrix_a)):
@@ -123,13 +174,28 @@ def matrix_addition(matrix_a, matrix_b):
 
     return result
 
-# Problem 4
+  def test_3():
+    assert matrix_addition(matrix_a, matrix_a) == [[2, 4], [6, 8], [10, 12]]
+    
+# Problem 04
 
 def matrix_vector_multiplication(matrix, vector):
 
-    """
-    women do not know how to use computers
-    """
+ """Gets the product of an input matrix and an input vector
+
+   Creates a result matrix of the same size as one of the input matrices. 
+   It then loops over the matrix and vector and multiplies the corresponding elements
+   and places the result in the new matrix in the same format as the corresponding elements
+   in the given matrix. After it breaks the loop, it returns the resulting matrix.   
+
+   Args:
+       matrix: matrix_a stored as a list of lists.
+       vector: a vector, same length as an element in the matrix (A list in the list of lists)
+       
+    Result:
+       A result matrix that contains the product of the two given argument.
+
+"""
 
     result = [[0 for element in range(len(matrix[0]))] for element in range(len(matrix))]
 
@@ -138,12 +204,29 @@ def matrix_vector_multiplication(matrix, vector):
             result[row][column] = matrix[row][column] * vector[column]
 
     return result
+  
+  def test_4():
+    assert matrix_vector_multiplication(matrix_b, vector_a) == [[1, 4, 9], [4, 10, 18]]
+  
+ # Problem 05
 
 def matrix_multiplication(matrix_a, matrix_b):
 
-    """
-    docstring goes here
-    """
+"""Gets the product of two input matrices
+
+   Creates a result matrix of the same number of rows in matrix_a and the same number of columns as matrix_b. 
+   It then loops over the matrices and multiplies the corresponding elements
+   and adds the result to the element in the corresponding location of the result matrix.
+   After it breaks the loop, it returns the resulting matrix.   
+
+   Args:
+       matrix_a: a matrix stored as a list of lists.
+       matrix_b: a matrix stored as a list of lists whos rows must equal matrix_a's columns.
+       
+    Result:
+       A result matrix that contains the product of the two given matrices.
+
+"""
 
     result = [[0 for element in range(len(matrix_b[0]))] for element in range(len(matrix_a))]
 
@@ -154,6 +237,9 @@ def matrix_multiplication(matrix_a, matrix_b):
 
     return result
 
+ def test_5():
+    assert matrix_multiplication(matrix_b, matrix_a) == [[22, 28], [49, 64]]
+ 
 """
 This assignment is due by 11:59pm on 10/22/2021. 
 
@@ -199,11 +285,11 @@ function then returns the inner product of these vectors. Your function must be
 able to handle complex numbers!
 """
 
-"""Returns the abolute value of the input scalar.
+"""Returns the absolute value of the input scalar.
 
-This function first checks wether the input is a complex number. If so,
+This function first checks whether the input is a complex number. If so,
 it will return the square root of the sum of the real number squared
-and the imaginary numbere squared. Otherwise, it will check wether the
+and the imaginary numbere squared. Otherwise, it will check whether the
 numeric value is 0 or greater, in which case it will return that same
 number. Finally, it will return the scalar multiplied by -1 as a final
 option.
@@ -212,7 +298,7 @@ Args:
     scalar: A numerical value or complex number.
 
 Returns:
-   An float. 
+   A float. 
 """ 
 
 def absolute_value(scalar):
